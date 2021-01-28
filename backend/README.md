@@ -16,13 +16,21 @@ yarn add -D eslint eslint-config-prettier @typescript-eslint/eslint-plugin @type
 
 cat <<EOF > .eslintrc
 {
-  "parser": "@typescript-eslint/parser",
+  "env": {
+    "node": true
+  },
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
+    "prettier",
     "prettier/@typescript-eslint"
-  ]
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0
+  },
+  "plugins": ["@typescript-eslint"]
 }
+
 EOF
 ```
 
