@@ -13,6 +13,7 @@ services:
       - "3001:3001"
     volumes:
       - ./backend:/app
+    container_name: backend
   # MySQL
   db:
     image: mysql:5.7
@@ -25,7 +26,8 @@ services:
       - ./db/initdb.d:/docker-entrypoint-initdb.d
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
-      - 3308:3306
+      - 3306:3306
+    container_name: db
   # frontend react app
   frontend:
     build:
@@ -36,3 +38,4 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/app
+    container_name: frontend

@@ -1,11 +1,11 @@
 module.exports = {
   type: "mysql",
-  host: "ts_services_bp_db_1",
+  host: "db",
   port: 3306,
   username: "root",
   password: "root",
   database: "world",
-  synchronize: true,
+  synchronize: false,
   logging: true,
   entities: ["src/entity/**/*.ts"],
   migrations: ["src/migration/**/*.ts"],
