@@ -1,7 +1,9 @@
-import express, { Request, Response, NextFunction } from "express";
-import bodyParser from "body-parser";
+import express, { NextFunction, Request, Response } from "express";
+
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const router = express.Router();
 
 // CORS
@@ -13,14 +15,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   );
   next();
 });
-
-// body-parser
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-app.use(bodyParser.json());
 
 // router
 router.get(
